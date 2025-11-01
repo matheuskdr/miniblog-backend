@@ -1,0 +1,32 @@
+{
+    "name": "miniblog-frontend",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "https://github.com/matheuskdr/miniblog-frontend#readme",
+    "bugs": {
+        "url": "https://github.com/matheuskdr/miniblog-frontend/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/matheuskdr/miniblog-frontend.git"
+    },
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node --import=tsx --watch --env-file=.env ./src/server.ts"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.5",
+        "@types/node": "^24.9.2",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^5.1.0",
+        "helmet": "^8.1.0",
+        "tsx": "^4.20.6"
+    }
+}
