@@ -1,7 +1,10 @@
 import express, { urlencoded } from "express";
 import cors from "cors";
 import helmet from "helmet";
+import dotenv from "dotenv";
 import { mainRouter } from "./routers/main.js";
+
+dotenv.config();
 
 const server = express();
 server.use(helmet());

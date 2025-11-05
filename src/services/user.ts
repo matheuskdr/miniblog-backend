@@ -1,4 +1,3 @@
-import type { Prisma } from "@prisma/client";
 import { prisma } from "../utils/prisma.js";
 
 type Props = {

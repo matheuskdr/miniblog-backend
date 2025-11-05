@@ -26,7 +26,7 @@ export const verifyJWT = (
             const user = await findUserByEmail(decoded.email);
             if (!user) return res.status(401).json({ error: "Acesso negado" });
 
-            req.userEmail = user.email;
+            req.userId = user.id;
             next();
         }
     );
