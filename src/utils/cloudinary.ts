@@ -27,6 +27,6 @@ export const hadleCover = async (file: Express.Multer.File) => {
         const result = await uploadFromBuffer(file.buffer);
         return result.secure_url as string;
     } catch (err) {
-        return false;
+        return null;
     }
 };
