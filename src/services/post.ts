@@ -4,6 +4,7 @@ import { prisma } from "../utils/prisma.js";
 type Props = {
     title: string;
     content?: string;
+    body?: string;
     imageUrl?: string;
     authorId: number;
 };

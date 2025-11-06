@@ -23,6 +23,7 @@ export const addPost = async (req: ExtendedRequest, res: Response) => {
         authorId: req.userId,
         title: safeData.data.title,
         content: safeData.data.content,
+        body: safeData.data.body,
         imageUrl: imageName,
     });
 
@@ -49,6 +50,7 @@ export const editPost = async (req: ExtendedRequest, res: Response) => {
         Object.entries({
             title: safeData.data.title,
             content: safeData.data.content,
+            body: safeData.data.body,
             imageUrl: imageName,
         }).filter(([_, value]) => value !== undefined)
     );
@@ -63,6 +65,7 @@ export const editPost = async (req: ExtendedRequest, res: Response) => {
             authorId: updatedPost.authorId,
             title: updatedPost.title,
             content: updatedPost.content,
+            body: updatedPost.body,
             image: updatedPost.imageUrl,
         },
     });
