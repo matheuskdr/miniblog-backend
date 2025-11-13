@@ -1,3 +1,4 @@
+import type { User } from "../generated/prisma/client.js";
 import { prisma } from "../utils/prisma.js";
 
 type Props = {
@@ -16,6 +17,18 @@ export const findUserByEmail = async (email: string) => {
     }
 
     return null;
+};
+
+export const findUserById = async (id: number) => {
+    const user = await prisma.user.findFirst({
+        where: { id },
+        select: {
+            id: true,
+            name: true,
+        },
+    });
+
+    return user;
 };
 
 export const createUser = async (data: Props) => {

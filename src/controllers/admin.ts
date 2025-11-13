@@ -14,7 +14,9 @@ export const addPost = async (req: ExtendedRequest, res: Response) => {
 
     const file = req.file;
     if (!file)
-        return res.status(400).json({ error: "Nenhum arquivo enviado." });
+        return res
+            .status(400)
+            .json({ error: "Nenhum arquivo enviado ou nao permitido" });
 
     const imageName = await hadleCover(file);
     if (!imageName) return res.json({ error: "Imagem não permitida/enviada" });

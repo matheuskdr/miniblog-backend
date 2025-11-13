@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { getAllPosts, getPostById } from "../services/post.js";
+import { findUserById } from "../services/user.js";
 
 export const getPost = async (req: Request, res: Response) => {
     if (!req.params.id) return res.json({ error: "Precisa mandar o id." });
@@ -12,6 +13,15 @@ export const getPost = async (req: Request, res: Response) => {
 
 export const getPosts = async (req: Request, res: Response) => {
     const posts = await getAllPosts();
-    if (!posts) return res.json({ error: "Post inexistente" });
-    res.json({ post: posts });
+    if (!posts) return res.json({ error: "Posts inexistentes" });
+    res.status(200).json({ post: posts });
+};
+
+export const getUser = async (req: Request, res: Response) => {
+    if (!req.params.id) return res.json({ error: "Precisa mandar o id." });
+    const id = parseInt(req.params.id);
+
+    const user = await findUserById(id);
+    if (!user) return res.json({ error: "Usuario não existe" });
+    res.status(200).json({ userName: user.name });
 };

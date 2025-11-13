@@ -36,11 +36,31 @@ export const deletePost = async (id: number) => {
 };
 
 export const getPostById = async (id: number) => {
-    return await prisma.post.findFirst({
+    return await prisma.post.findUnique({
         where: { id },
+        include: {
+            author: {
+                select: {
+                    id: true,
+                    name: true,
+                },
+            },
+        },
     });
 };
 
 export const getAllPosts = async () => {
-    return await prisma.post.findMany({});
+    const posts = await prisma.post.findMany({
+        include: {
+            author: {
+                select: {
+                    id: true,
+                    name: true,
+                },
+            },
+        },
+        orderBy: { id: "desc" },
+    });
+
+    return posts;
 };
